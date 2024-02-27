@@ -2,7 +2,7 @@ NAME = so_long
 
 CC = CC
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -13,23 +13,20 @@ SRC = get_next_line.c \
 		reading.c \
 		so_long.c 
 
-
-OBJS = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $<
+%.o : %.c so_long.h
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: clean

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/26 18:46:11 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/27 01:22:28 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ int count_lines(int fd)
 }
 
 
-int main()
-{
-	int fd = open("map.ber", O_RDONLY);
-	char *line = get_next_line(fd);
-	char **lines = read_map(fd, line);
-	while (line)
-	{
-		// line;
-		free(line);
-		line = get_next_line(fd);
+// int main()
+// {
+// 	int fd = open("map.ber", O_RDONLY);
+// 	char *line = get_next_line(fd);
+// 	char **lines = read_map(fd, line);
+// 	while (line)
+// 	{
+// 		// line;
+// 		free(line);
+// 		line = get_next_line(fd);
 				
-	}
-}
+// 	}
+// }

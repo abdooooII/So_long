@@ -6,18 +6,18 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:25:56 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/26 17:33:57 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/27 22:06:08 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av)
+int main (int ac, char **av)
 {
-	char **my_map;
-	if (ac != 2)
-		error(2);
-	// my_map = read_map(fd, av[1]);
-	
-	
+	 parsing(ac , av);	
 }
+
+// int main()
+// {
+// 	printf("abderrahmane");
+// }

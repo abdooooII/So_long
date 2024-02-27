@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:19:29 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/26 17:29:15 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/27 22:39:32 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ char	*remove_first_line(char *buffer);
 char	*get_next_line(int fd);
 int 	count_lines(int fd);
 char	*ft_strdup(char *s1);
-char	*error(int fd);
-
+char	*ft_error(char *str);
+void	check_file(char *str);
+char    **parsing(int ac, char **av);
+char    **read_map(int fd, char *av);
+int     check_spaces(char **lines);
+int     check_map_characters(char **lines);
 #endif
