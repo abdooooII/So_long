@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:26:23 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/27 22:39:10 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/28 04:15:34 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,16 @@ int	check_spaces(char **lines)
 	int j;
 	
 	i = 0;
-	while(!lines[i])
+	j = 0;
+	while(lines[i])
 	{
-		j = 0;
 		while(lines[i][j])
 		{
-			if ( (lines[i][j] >= 9 && lines[i][j] <= 13) || lines[i][j] == ' ')
+			if (lines[i][j] == ' ' || lines[i][j] == '\t')
 				ft_error("ERROR :found white spaces on the map!");
 			j++;
 		}
+		j = 0;
 		if (lines[1][j] == '\0')
 			ft_error("ERROR : the map is empty");
 		i++;
@@ -103,7 +104,7 @@ int	check_map_characters(char **lines)
 		j = 0;
 		i++;
 	}
-	if(P != 1 && E != 1 && C == 0)
+	if(P != 1 || E != 1 || C == 0)
 		ft_error("ERROR: problem in map characters");
 	return (0);
 	

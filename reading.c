@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/27 01:22:28 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/28 03:57:26 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char **read_map(int fd, char *av)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		all_lines[i] = ft_strdup(line);
 		free(line);
 		if (!all_lines[i])
