@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:19:29 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/27 22:39:32 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:52:13 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,6 @@ char    **parsing(int ac, char **av);
 char    **read_map(int fd, char *av);
 int     check_spaces(char **lines);
 int     check_map_characters(char **lines);
+int		check_invalid_characters(char **lines);
+int		check_walls(char **lines);
 #endif

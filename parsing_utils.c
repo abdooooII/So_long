@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:26:23 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/28 04:15:34 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:56:39 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_file(char *str)
 	if (str[i] == '.' && str[++i] == 'b' && str[++i] == 'e' && str[++i] == 'r')
 		return ;
 	else
-		ft_error("ERROR :extension\n");
+		ft_error("ERROR: extension\n");
 }
 
 int	check_spaces(char **lines)
@@ -108,6 +108,50 @@ int	check_map_characters(char **lines)
 		ft_error("ERROR: problem in map characters");
 	return (0);
 	
+}
+
+int	check_invalid_characters(char **lines)
+{
+	int i = 0;
+	int j = 0;
+	
+	while(lines[i])
+	{
+		while(lines[i][j])
+		{
+			if (lines[i][j] != '1' && lines[i][j] != '0' && lines[i][j] != 'C' && lines[i][j] != 'P' && lines[i][j] != 'E' && lines[i][j] != '\n')
+			{
+				ft_error("ERROR: invalid characters\n");
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (0);
+}
+
+int	check_walls(char **lines)
+{
+	int i;
+	int j;
+
+	i = 4;
+	j = 0;
+	while(lines[0][j])
+	{
+		if  (lines[0][j] != '1' && lines[0][j] != '\n')
+			ft_error("ERROR; walls");
+		j++;
+	}
+	j = 0;
+	while(lines[i][j])
+	{
+		if  (lines[i][j] != '1')
+			ft_error("ERROR; walls");
+		j++;
+	}
+	return (0);
 }
 
 // int main(int ac, char **av)

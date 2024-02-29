@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:58:27 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/28 04:15:28 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:43:39 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ char    **parsing(int ac, char **av)
         ft_error("error while reading the map\n");
     check_spaces(my_map);
     check_map_characters(my_map);
+	check_invalid_characters(my_map);
+	check_walls(my_map);
+
 
     return (NULL);
     
