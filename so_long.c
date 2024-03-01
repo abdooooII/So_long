@@ -1,23 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 16:25:56 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/27 22:06:08 by abouafso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "so_long.h"
 
 int main (int ac, char **av)
 {
-	 parsing(ac , av);	
+	t_list	vars;
+	if (ac != 2)
+		ft_error("Error: Invalid number of arguments\n");
+	vars.C = 0;
+	vars.E = 0;
+	vars.P = 0;
+	parsing(av, &vars);
 }
-
-// int main()
-// {
-// 	printf("abderrahmane");
-// }
