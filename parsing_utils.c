@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:26:23 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/28 17:56:39 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:48:08 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int	check_walls(char **lines)
 	int i;
 	int j;
 
-	i = 4;
+	i = countlines(lines) - 1;
 	j = 0;
 	while(lines[0][j])
 	{
@@ -152,6 +152,48 @@ int	check_walls(char **lines)
 		j++;
 	}
 	return (0);
+}
+
+int countlines(char **lines)
+{
+	int count = 0;
+	
+	while(lines[count])
+		count++;
+	return(count);
+}
+
+int check_sides(char **lines)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = ft_strlen(lines[i]) - 2;
+	while(lines[i])
+	{
+		if (lines[i][0] != '1' || lines[i][j] != '1')
+			ft_error("ERROR: invalid map sides!");
+		i++;
+	}
+	return (0);
+}
+int check_map_width(char **lines)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = ft_strlen(lines[0]);
+	while(lines[i + 1])
+	{
+		if(ft_strlen(lines[i]) != len )
+			ft_error("ERROR: check map width");
+		i++;
+	}
+	if (ft_strlen(lines[i]) != len - 1)
+		ft_error("ERROR: check map width");
+	return (0); 
 }
 
 // int main(int ac, char **av)
