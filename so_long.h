@@ -1,21 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 16:19:29 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/29 11:25:17 by abouafso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef so_long
 # define so_long
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+typedef struct s_list
+{
+	char	**my_map;
+	int		E;
+	int		P;
+	int		C;
+}	t_list;
 
 #include <unistd.h> //open, close, read, write
 #include <stdlib.h> //malloc, free, exit
@@ -38,15 +34,15 @@ int 	count_lines(int fd);
 char	*ft_strdup(char *s1);
 char	*ft_error(char *str);
 void	check_file(char *str);
-char    **parsing(int ac, char **av);
+char    **parsing(char **av, t_list *vars);
 char    **read_map(int fd, char *av);
-int     check_spaces(char **lines);
-int     check_map_characters(char **lines);
-int		check_invalid_characters(char **lines);
-int		check_walls(char **lines);
-int     countlines(char **lines);
-int     check_sides(char **lines);
-int     check_map_width(char **lines);
+int     check_spaces(t_list *vars);
+int     check_map_characters(t_list *vars);
+int		check_invalid_characters(t_list *vars);
+int		check_walls(t_list *vars);
+int     countlines(t_list *vars);
+int     check_sides(t_list *vars);
+int     check_map_width(t_list *vars);
 
 
 #endif
