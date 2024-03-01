@@ -7,9 +7,9 @@ char	**parsing(char **av, t_list *vars)
 	check_file(av[1]);
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
-		ft_error("file descriptor fail\n");	
+		ft_error("file descriptor fail\n");
 	vars->my_map = read_map(fd, av[1]);
-	if(!vars->my_map)
+	if (!vars->my_map)
 		ft_error("error while reading the map\n");
 	check_spaces(vars);
 	check_map_characters(vars);
@@ -19,11 +19,3 @@ char	**parsing(char **av, t_list *vars)
 	check_map_width(vars);
 	return (NULL);
 }
-
-// int main (int ac, char **av)
-// {
-// 	char **my_map;
-	
-// 	my_map = parsing(ac , av);
-	
-// }
