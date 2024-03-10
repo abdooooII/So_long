@@ -7,6 +7,7 @@
 # include <string.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <mlx.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -19,6 +20,23 @@ typedef struct s_list
 	int		p;
 	int		c;
 }	t_list;
+
+// typedef struct s_libx
+// {
+// 	void	*mlx;
+// 	int		x;
+// 	int		y;
+// 	char	**carte;
+// 	int		w;
+// 	int		h;
+// 	void	*wind;
+// 	void	*img;
+// 	void	*player;
+// 	void	*collectibles;
+// 	void	*exit;
+// 	void	*wall;
+
+// }			t_libx;
 
 int		ft_strlen(char *str);
 char	*ft_strrchr(char *str, int c);
@@ -42,5 +60,16 @@ int		check_walls(t_list *vars);
 int		countlines(t_list *vars);
 int		check_sides(t_list *vars);
 int		check_map_width(t_list *vars);
+char	**map_copie(char **lines);
+void	player_position(char **lines, int *i, int *j);
+void 	ft_flood_fill(char **lines, int i, int j);
+void 	check_path(char **lines);
+
+
+
+
+//mlx-------
+
+// void	my_mlx(t_libx *libx);
 
 #endif

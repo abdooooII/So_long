@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/03/01 07:35:40 by mkimdil          ###   ########.fr       */
+/*   Updated: 2024/03/09 19:20:01 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**read_map(int fd, char *av)
 	i = count_lines(fd);
 	close(fd);
 	fd = open(av, O_RDONLY);
-	all_lines = (char **)malloc(sizeof(char *) * i);
+	all_lines = (char **)malloc(sizeof(char *) * i + 1);
 	if (!all_lines)
 		return (NULL);
 	i = 0;

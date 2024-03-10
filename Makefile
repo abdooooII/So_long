@@ -11,7 +11,8 @@ SRC = get_next_line.c \
 		parsing_utils.c \
 		parsing.c \
 		reading.c \
-		so_long.c 
+		so_long.c \
+
 
 OBJ = $(SRC:.c=.o)
 
