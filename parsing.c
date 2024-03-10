@@ -17,5 +17,6 @@ char	**parsing(char **av, t_list *vars)
 	check_walls(vars);
 	check_sides(vars);
 	check_map_width(vars);
+	validpath_checker(vars);
 	return (NULL);
 }

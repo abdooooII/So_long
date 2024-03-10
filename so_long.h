@@ -7,7 +7,7 @@
 # include <string.h>
 # include <limits.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -16,6 +16,7 @@
 typedef struct s_list
 {
 	char	**my_map;
+	char	**updated_map;
 	int		e;
 	int		p;
 	int		c;
@@ -60,10 +61,11 @@ int		check_walls(t_list *vars);
 int		countlines(t_list *vars);
 int		check_sides(t_list *vars);
 int		check_map_width(t_list *vars);
-char	**map_copie(char **lines);
-void	player_position(char **lines, int *i, int *j);
-void 	ft_flood_fill(char **lines, int i, int j);
-void 	check_path(char **lines);
+char	**map_copie(t_list *vars);
+void	player_position(t_list *vars, int *i, int *j);
+void 	ft_flood_fill(t_list *vars, int i, int j);
+void 	check_path(t_list *vars);
+void 	validpath_checker(t_list *vars);
 
 
 
