@@ -13,6 +13,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
+
 typedef struct s_list
 {
 	char	**my_map;

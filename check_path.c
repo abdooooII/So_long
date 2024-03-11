@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:10:58 by abouafso          #+#    #+#             */
-/*   Updated: 2024/03/10 23:05:34 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:16:23 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 char	**map_copie(t_list *vars)
 {
 	int	i;
+	int ii;
 	char	**map_copie;
 
-	i = countlines(vars);
-	map_copie = (char **) malloc (sizeof(char *) * i + 1);
+	ii = countlines(vars);
+	map_copie = (char **) malloc (sizeof(char *) * ii + 1);
 	if (!map_copie)
 		return (NULL);
 	i = 0;
-	while (vars->my_map[i])
+	while (i < ii)
 	{
 		map_copie[i] = ft_strdup(vars->my_map[i]);
-		if (!map_copie)
+		if (!map_copie[i])
 			ft_error("Error\nfor strdup to copie map\n");
 		i++;
 	}
@@ -50,16 +51,19 @@ void	player_position(t_list *vars, int *i, int *j)
 
 void ft_flood_fill(t_list *vars, int i, int j)
 {
-	if(i < 0 || i >= countlines(vars) || j < 0 || j >= ft_strlen(vars->my_map[0]) 
-	|| vars->my_map[i][j] == '1' || vars->my_map[i][j] == 'S'
-	|| vars->my_map[i][j] == 'E')
+	// printf("i: %d\tj: %d\tcountlines: %d\tft_strlen: %d\n", i, j, countlines(vars), ft_strlen(vars->my_map[0]));
+	if (i < 0 || i >= countlines(vars) || j < 0 
+	|| j >= ft_strlen(vars->updated_map[0]) 
+	|| vars->updated_map[i + 1][j + 1] == '1' || vars->updated_map[i + 1][j + 1] == 'S'
+	|| vars->updated_map[i + 1][j + 1] == 'E')
 		return ;
-	vars->my_map[i][j] = 'S';
-	ft_flood_fill(vars, i + 1, j);
+	vars->updated_map[i + 1][j + 1] = 'S';
 	ft_flood_fill(vars, i - 1, j);
-	ft_flood_fill(vars, i , j + 1);
-	ft_flood_fill(vars, i, j - 1);
+	ft_flood_fill(vars, i + 1, j);
+	ft_flood_fill(vars, i , j - 1);
+	ft_flood_fill(vars, i, j + 1);
 }
+
 void check_path(t_list *vars)
 {
 	int	i;
@@ -84,13 +88,13 @@ void check_path(t_list *vars)
 	}
 }
 
-void ft_print()
-{
-	printf("HHHHHHH");
-	exit(EXIT_FAILURE);
+// void ft_print()
+// {
+// 	printf("HHHHHHH");
+// 	exit(EXIT_FAILURE);
 
 	
-}
+// }
 void validpath_checker(t_list *vars)
 {
 	int		i;
@@ -99,8 +103,9 @@ void validpath_checker(t_list *vars)
 	i = 0;
 	j = 0;
 	vars->updated_map = map_copie(vars);
-	ft_print();
 	player_position(vars, &i, &j);
 	ft_flood_fill(vars, i, j);
+	// printf("%s",vars->updated_map[1]);
+	// printf("%s",vars->my_map[1]);
 	check_path(vars);
 }
