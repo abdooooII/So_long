@@ -20,10 +20,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o : %.c so_long.h
-		$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
