@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/22 08:38:19 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/27 03:54:11 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,24 @@ typedef struct s_list
 	int		c;
 }	t_list;
 
-// typedef struct s_libx
-// {
-// 	void	*mlx;
-// 	int		x;
-// 	int		y;
-// 	char	**carte;
-// 	int		w;
-// 	int		h;
-// 	void	*wind;
-// 	void	*img;
-// 	void	*player;
-// 	void	*collectibles;
-// 	void	*exit;
-// 	void	*wall;
+typedef struct s_libx
+{
+	int		height;
+	int		width;
+	int		x;
+	int		y;
+	int		moves;
+	char	**map;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	void	*background;
+	void	*player;
+	void	*collectibles;
+	void	*exit;
+	void	*wall;
 
-// }			t_libx;
+}			t_libx;
 
 int		ft_strlen(char *str);
 char	*ft_strrchr(char *str, int c);
