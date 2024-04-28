@@ -12,7 +12,8 @@ SRC = get_next_line.c \
 		parsing.c \
 		reading.c \
 		so_long.c \
-		check_path.c
+		check_path.c \
+		mlx_commands.c
 
 
 OBJ = $(SRC:.c=.o)

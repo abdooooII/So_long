@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/22 08:38:13 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 05:37:59 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 int	main(int ac, char **av)
 {
 	t_list	vars;
+	t_libx	mlx;
+	char **map;
 	// t_libx	*libx;
-
+	mlx.moves = 0;
 	// libx = NULL;
 	if (ac != 2)
 		ft_error("Error: Invalid number of arguments\n");
 	vars.c = 0;
 	vars.e = 0;
 	vars.p = 0;
-	parsing(av, &vars);
-
+	map = parsing(av, &vars, &mlx);
+	start_map(map, mlx);
+	
+	mlx_loop(mlx.mlx);
 	// my_mlx(libx);
 }

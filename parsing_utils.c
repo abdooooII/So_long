@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/22 08:38:05 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 05:35:49 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,15 @@ int	countlines(t_list *vars)
 
 	count = 0;
 	while (vars->my_map[count])
+		count++;
+	return (count);
+}
+int	countliness(char **map)
+{
+	int	count;
+
+	count = 0;
+	while (map[count])
 		count++;
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/03/09 19:20:01 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 05:19:10 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**read_map(int fd, char *av)
 	return (all_lines);
 }
 
-int	count_lines(int fd)
+int	  count_lines(int fd)
 {
 	int		count;
 	char	*line;
