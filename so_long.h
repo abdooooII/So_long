@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 18:43:36 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 21:02:38 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ void    move_to_right(t_libx *mlx);
 void    move_to_left(t_libx *mlx);
 void    move_to_up(t_libx *mlx);
 void    move_to_down(t_libx *mlx);
+int start_the_game(t_libx *mlx, int keycode);
+void	player_positionn(char **map, int *i, int *j);
 
 
 

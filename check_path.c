@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:10:58 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/22 08:41:39 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 21:02:22 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ void	player_position(t_list *vars, int *i, int *j)
 		while(vars->my_map[*i][*j])
 		{
 			if(vars->my_map[*i][*j])
+				return;
+			(*j)++;
+		}
+		(*i)++;
+	}
+}
+void	player_positionn(char **map, int *i, int *j)
+{
+	while(map[*i])
+	{
+		*j = 0;
+		while(map[*i][*j])
+		{
+			if(map[*i][*j] == 'P')
 				return;
 			(*j)++;
 		}

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 18:15:19 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 20:47:50 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,7 @@ int	C_count(char **map)
 	while(map[i])
 	{
 		j = 0;
-		while(mao[i][j])
+		while(map[i][j])
 		{
 			if(map[i][j] == 'C')
 				C++;

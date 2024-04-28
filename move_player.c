@@ -1,110 +1,86 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 17:55:06 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 20:38:53 by abouafso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "so_long.h"
 
 void    move_to_right(t_libx *mlx)
 {
-    player_position(mlx->map, &mlx->i, mlx->y);
+    player_positionn(mlx->map, &mlx->y, &mlx->x);
 
-    if(mlx->map[mlx->i][mlx->j + 1] == '0')
+    if (mlx->map[mlx->y][mlx->x + 1] == '0')
     {
-        mlx->map[mlx->i][mlx->j + 1] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y][mlx->x + 1] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i][mlx->j + 1] == 'C')
+    else if (mlx->map[mlx->y][mlx->x + 1] == 'C')
     {
-        mlx->map[mlx->i][mlx->j + 1] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y][mlx->x + 1] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i][mlx->j + 1] == 'E')
+    else if (mlx->map[mlx->y][mlx->x + 1] == 'E')
     {
-        if(C_count(mlx->map) == 0)
-        {
-            printf("you won!!!!")
-            exit(EXIT_SUCCESS);
-        }
+        if (C_count(mlx->map) == 0)
+            printf("you won!!!!");
     }
 }
 
 void    move_to_left(t_libx *mlx)
 {
-    player_position(mlx->map, &mlx->i, mlx->y);
+    player_positionn(mlx->map, &mlx->y, &mlx->x);
 
-    if(mlx->map[mlx->i][mlx->j - 1] == '0')
+    if (mlx->map[mlx->y][mlx->x - 1] == '0')
     {
-        mlx->map[mlx->i][mlx->j - 1] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y][mlx->x - 1] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i][mlx->j - 1] == 'C')
+    else if (mlx->map[mlx->y][mlx->x - 1] == 'C')
     {
-        mlx->map[mlx->i][mlx->j - 1] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y][mlx->x - 1] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i][mlx->j - 1] == 'E')
+    else if (mlx->map[mlx->y][mlx->x - 1] == 'E')
     {
-        if(C_count(mlx->map) == 0)
-        {
-            printf("you won!!!!")
-            exit(EXIT_SUCCESS);
-        }
+        if (C_count(mlx->map) == 0)
+            printf("you won!!!!");
     }
 }
 
 void    move_to_up(t_libx *mlx)
 {
-    player_position(mlx->map, &mlx->i, mlx->y);
+    player_positionn(mlx->map, &mlx->y, &mlx->x);
 
-    if(mlx->map[mlx->i - 1][mlx->j] == '0')
+    if (mlx->map[mlx->y - 1][mlx->x] == '0')
     {
-        mlx->map[mlx->i - 1][mlx->j] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y - 1][mlx->x] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i - 1][mlx->j] == 'C')
+    else if (mlx->map[mlx->y - 1][mlx->x] == 'C')
     {
-        mlx->map[mlx->i - 1][mlx->j] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y - 1][mlx->x] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i - 1][mlx->j] == 'E')
+    else if (mlx->map[mlx->y - 1][mlx->x] == 'E')
     {
-        if(C_count(mlx->map) == 0)
-        {
-            printf("you won!!!!")
-            exit(EXIT_SUCCESS);
-        }
+        if (C_count(mlx->map) == 0)
+            printf("you won!!!!");
     }
 }
 
 void    move_to_down(t_libx *mlx)
 {
-    player_position(mlx->map, &mlx->i, mlx->y);
+    player_positionn(mlx->map, &mlx->y, &mlx->x);
 
-    if(mlx->map[mlx->i + 1][mlx->j] == '0')
+    if (mlx->map[mlx->y + 1][mlx->x] == '0')
     {
-        mlx->map[mlx->i + 1][mlx->j] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y + 1][mlx->x] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i + 1][mlx->j] == 'C')
+    else if (mlx->map[mlx->y + 1][mlx->x] == 'C')
     {
-        mlx->map[mlx->i + 1][mlx->j] == 'P';
-        mlx->map[mlx->i][mlx->j] == '0';
+        mlx->map[mlx->y + 1][mlx->x] = 'P';
+        mlx->map[mlx->y][mlx->x] = '0';
     }
-    else if(mlx->map[mlx->i + 1][mlx->j] == 'E')
+    else if (mlx->map[mlx->y + 1][mlx->x] == 'E')
     {
-        if(C_count(mlx->map) == 0)
-        {
-            printf("you won!!!!")
-            exit(EXIT_SUCCESS);
-        }
+        if (C_count(mlx->map) == 0)
+            printf("you won!!!!");
     }
 }
 
@@ -122,17 +98,14 @@ void    move_player(t_libx *mlx, int keycode)
 
 int start_the_game(t_libx *mlx, int keycode)
 {
-    if(keycode == 53)
+    if (keycode == 53)
         exit(EXIT_SUCCESS);
-    if(keycode == A || keycode == D || keycode == S || keycode == W)
+    if (keycode == A || keycode == D || keycode == S || keycode == W)
     {
         move_player(mlx, keycode);
         start_map(mlx->map, *mlx);
-        mlx->x = 0;
         mlx->y = 0;
+        mlx->x = 0;
     }
-
+    return (0);
 }
-
-
-
