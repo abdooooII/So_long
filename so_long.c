@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 11:41:09 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 20:41:16 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int ac, char **av)
 	start_map(map, mlx);
 	
     mlx_hook(mlx.win, 17, 0, destroy_helper, &mlx);
+    mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);
 	mlx_loop(mlx.mlx);
-
 }

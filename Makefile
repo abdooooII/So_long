@@ -13,7 +13,8 @@ SRC = get_next_line.c \
 		reading.c \
 		so_long.c \
 		check_path.c \
-		mlx_commands.c
+		mlx_commands.c \
+		move_player.c
 
 
 OBJ = $(SRC:.c=.o)

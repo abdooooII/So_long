@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 05:35:49 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:15:19 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,4 +201,27 @@ int	check_map_width(t_list *vars)
 	if (ft_strlen(vars->my_map[i]) != len - 1)
 		ft_error("ERROR: check map width");
 	return (0);
+}
+
+int	C_count(char **map)
+{
+	int i;
+	int j;
+	int C;
+
+	C = 0;
+	i = 0;
+	// j = 0;
+	while(map[i])
+	{
+		j = 0;
+		while(mao[i][j])
+		{
+			if(map[i][j] == 'C')
+				C++;
+			j++;
+		}
+		i++;
+	}
+	return(C);
 }

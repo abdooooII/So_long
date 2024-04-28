@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 11:37:37 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:43:36 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # include <fcntl.h>
 #include "mlx.h"
 
+
+# define A 0
+# define S 1
+# define D 2
+# define W 13
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -101,7 +106,13 @@ void	map_dimension(t_libx *mlx);
 
 //hooks
 
-int destroy_helper(void *param);
+int		C_count(char **map);
+int 	destroy_helper(void *param);
+void    move_to_right(t_libx *mlx);
+void    move_to_left(t_libx *mlx);
+void    move_to_up(t_libx *mlx);
+void    move_to_down(t_libx *mlx);
+
 
 
 #endif
