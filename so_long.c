@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:00:52 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:35:21 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,17 @@ char	*ft_itoa(int n)
 }
 int	main(int ac, char **av)
 {
-	t_list	vars;
 	t_libx	mlx;
-	// t_libx	*libx;
+
 	mlx.moves = 0;
-	// libx = NULL;
-	if (ac != 2)
-		ft_error("Error: Invalid number of arguments\n");
-	vars.c = 0;
-	vars.e = 0;
-	vars.p = 0;
-	parsing(av, &vars, &mlx);
+	mlx.cc = 0;
+	mlx.ee = 0;
+	mlx.pp = 0;
 	mlx.x = 0;
 	mlx.y = 0;
+	if (ac != 2)
+		ft_error("Error: Invalid number of arguments\n");
+	parsing(av, &mlx);
 	start_map(mlx);
 		
     mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:08 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:02:01 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:24:22 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_free(char **str)
 	free(str);
 }
 
-void	parsing(char **av, t_list *vars, t_libx *mlx)
+void	parsing(char **av,t_libx *mlx)
 {
 	int		fd;
 
@@ -28,17 +28,15 @@ void	parsing(char **av, t_list *vars, t_libx *mlx)
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 		ft_error("file descriptor fail\n");
-	vars->my_map = read_map(fd, av[1]);
-	if (!vars->my_map)
+	mlx->map = read_map(fd, av[1]);
+	if (!mlx->map)
 		ft_error("error while reading the map\n");
-	check_spaces(vars);
-	check_map_characters(vars);
-	check_invalid_characters(vars);
-	check_walls(vars);
-	check_sides(vars);
-	check_map_width(vars);
-	validpath_checker(vars);
-
-	mlx->map = vars->my_map; // Assigning the map to mapp
+	check_spaces(mlx);
+	check_map_characters(mlx);
+	check_invalid_characters(mlx);
+	check_walls(mlx);
+	check_sides(mlx);
+	check_map_width(mlx);
+	validpath_checker(mlx);
 	map_dimension(mlx);
 }

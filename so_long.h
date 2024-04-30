@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:01:49 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:27:08 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@
 # endif
 
 
-typedef struct s_list
-{
-	char	**my_map;
-	char	**updated_map;
-	int		e;
-	int		p;
-	int		c;
-	int		x;
-}	t_list;
+// typedef struct s_list
+// {
+// 	char	**my_map;
+// }	t_libx;
 
 typedef struct s_libx
 {
+	char	**map;
+	char	**updated_map;
+	int		ee;
+	int		pp;
+	int		cc;
+	int		xx;
 	int		height;
 	int		width;
 	int		x;
 	int		y;
 	int		moves;
-	char	**map;
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -63,6 +63,7 @@ typedef struct s_libx
 }			t_libx;
 
 char	*ft_itoa(int n);
+void	ft_free(char **str);
 int		ft_strlen(char *str);
 char	*ft_strrchr(char *str, int c);
 void	*ft_calloc(size_t num_elements, size_t element_size);
@@ -76,20 +77,20 @@ int		count_lines(int fd);
 char	*ft_strdup(char *s1);
 char	*ft_error(char *str);
 void	check_file(char *str);
-void	parsing(char **av, t_list *vars, t_libx *mlx);
+void	parsing(char **av, t_libx *mlx);
 char	**read_map(int fd, char *av);
-int		check_spaces(t_list *vars);
-int		check_map_characters(t_list *vars);
-int		check_invalid_characters(t_list *vars);
-int		check_walls(t_list *vars);
-int		countlines(t_list *vars);
-int		check_sides(t_list *vars);
-int		check_map_width(t_list *vars);
-char	**map_copie(t_list *vars);
-void	player_position(t_list *vars, int *i, int *j);
-void 	ft_flood_fill(t_list *vars, int i, int j);
-void 	check_path(t_list *vars);
-void 	validpath_checker(t_list *vars);
+int		check_spaces(t_libx *vars);
+int		check_map_characters(t_libx *vars);
+int		check_invalid_characters(t_libx *vars);
+int		check_walls(t_libx *vars);
+int		countlines(t_libx *vars);
+int		check_sides(t_libx *vars);
+int		check_map_width(t_libx *vars);
+char	**map_copie(t_libx *vars);
+void	player_position(t_libx *vars, int *i, int *j);
+void 	ft_flood_fill(t_libx *vars, int i, int j);
+void 	check_path(t_libx *vars);
+void 	validpath_checker(t_libx *vars);
 int		countliness(char **map);
 
 

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 20:52:03 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:23:29 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,18 @@ void	check_file(char *str)
 		ft_error("ERROR: extension\n");
 }
 
-int	check_spaces(t_list *vars)
+int	check_spaces(t_libx *mlx)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (vars->my_map[i])
+	while (mlx->map[i])
 	{
 		j = 0;
-		while (vars->my_map[i][j])
+		while (mlx->map[i][j])
 		{
-			if (vars->my_map[i][j] == ' ' || vars->my_map[i][j] == '\t')
+			if (mlx->map[i][j] == ' ' || mlx->map[i][j] == '\t')
 				ft_error("ERROR :found white spaces on the map!");
 			j++;
 		}
@@ -79,47 +79,47 @@ int	check_spaces(t_list *vars)
 	return (0);
 }
 
-int	check_map_characters(t_list *vars)
+int	check_map_characters(t_libx *mlx)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (vars->my_map[++i])
+	while (mlx->map[++i])
 	{
 		j = 0;
-		while (vars->my_map[i][j])
+		while (mlx->map[i][j])
 		{
-			if (vars->my_map[i][j] == 'C')
-				vars->c++;
-			else if (vars->my_map[i][j] == 'E')
-				vars->e++;
-			else if (vars->my_map[i][j] == 'P')
-				vars->p++;
-			else if (vars->my_map[i][j] == 'X')
-				vars->x++;
+			if (mlx->map[i][j] == 'C')
+				mlx->cc++;
+			else if (mlx->map[i][j] == 'E')
+				mlx->ee++;
+			else if (mlx->map[i][j] == 'P')
+				mlx->pp++;
+			else if (mlx->map[i][j] == 'X')
+				mlx->xx++;
 			j++;
 		}
 	}
-	if (vars->p != 1 || vars->e != 1 || vars->c == 0)
+	if (mlx->pp != 1 || mlx->ee != 1 || mlx->cc == 0)
 		ft_error("ERROR: problem in map characters");
 	return (0);
 }
 
-int	check_invalid_characters(t_list *vars)
+int	check_invalid_characters(t_libx *mlx)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (vars->my_map[i])
+	while (mlx->map[i])
 	{
 		j = 0;
-		while (vars->my_map[i][j])
+		while (mlx->map[i][j])
 		{
-			if (vars->my_map[i][j] != 'X' && vars->my_map[i][j] != '1' && vars->my_map[i][j] != '0'
-				&& vars->my_map[i][j] != 'C' && vars->my_map[i][j] != 'P'
-				&& vars->my_map[i][j] != 'E' && vars->my_map[i][j] != '\n')
+			if (mlx->map[i][j] != 'X' && mlx->map[i][j] != '1' && mlx->map[i][j] != '0'
+				&& mlx->map[i][j] != 'C' && mlx->map[i][j] != 'P'
+				&& mlx->map[i][j] != 'E' && mlx->map[i][j] != '\n')
 				ft_error("ERROR: invalid characters\n");
 			j++;
 		}
@@ -128,35 +128,35 @@ int	check_invalid_characters(t_list *vars)
 	return (0);
 }
 
-int	check_walls(t_list *vars)
+int	check_walls(t_libx *mlx)
 {
 	int	i;
 	int	j;
 
-	i = countlines(vars) - 1;
+	i = countlines(mlx) - 1;
 	j = 0;
-	while (vars->my_map[0][j])
+	while (mlx->map[0][j])
 	{
-		if (vars->my_map[0][j] != '1' && vars->my_map[0][j] != '\n')
+		if (mlx->map[0][j] != '1' && mlx->map[0][j] != '\n')
 			ft_error("ERROR; walls");
 		j++;
 	}
 	j = 0;
-	while (vars->my_map[i][j])
+	while (mlx->map[i][j])
 	{
-		if (vars->my_map[i][j] != '1')
+		if (mlx->map[i][j] != '1')
 			ft_error("ERROR; walls");
 		j++;
 	}
 	return (0);
 }
 
-int	countlines(t_list *vars)
+int	countlines(t_libx *mlx)
 {
 	int	count;
 
 	count = 0;
-	while (vars->my_map[count])
+	while (mlx->map[count])
 		count++;
 	return (count);
 }
@@ -170,36 +170,36 @@ int	countliness(char **map)
 	return (count);
 }
 
-int	check_sides(t_list *vars)
+int	check_sides(t_libx *mlx)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = ft_strlen(vars->my_map[i]) - 2;
-	while (vars->my_map[i])
+	j = ft_strlen(mlx->map[i]) - 2;
+	while (mlx->map[i])
 	{
-		if (vars->my_map[i][0] != '1' || vars->my_map[i][j] != '1')
+		if (mlx->map[i][0] != '1' || mlx->map[i][j] != '1')
 			ft_error("ERROR: invalid map sides!");
 		i++;
 	}
 	return (0);
 }
 
-int	check_map_width(t_list *vars)
+int	check_map_width(t_libx *mlx)
 {
 	int	i;
 	int	len;
 
 	i = 0;
-	len = ft_strlen(vars->my_map[0]);
-	while (vars->my_map[i + 1])
+	len = ft_strlen(mlx->map[0]);
+	while (mlx->map[i + 1])
 	{
-		if (ft_strlen(vars->my_map[i]) != len)
+		if (ft_strlen(mlx->map[i]) != len)
 			ft_error("ERROR: check map width");
 		i++;
 	}
-	if (ft_strlen(vars->my_map[i]) != len - 1)
+	if (ft_strlen(mlx->map[i]) != len - 1)
 		ft_error("ERROR: check map width");
 	return (0);
 }
