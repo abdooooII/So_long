@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:28 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 20:53:17 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:01:36 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,27 @@ void	start_window(t_libx	*mlx)
 	load_image(mlx, "assets/enemy2.xpm", &(mlx->enemy));
 }
 
-void	start_map(char **map, t_libx mlx)
+void	start_map(t_libx mlx)
 {
 	int i = 0;
 	int	j = 0;
 
-	while(map[i])
+	while(mlx.map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while(mlx.map[i][j])
 		{
-			if (map[i][j] == '1')
+			if (mlx.map[i][j] == '1')
 				put_image(&mlx, i, j, mlx.wall);
-			else if (map[i][j] == '0')
+			else if (mlx.map[i][j] == '0')
 				put_image(&mlx, i, j, mlx.background);
-			else if (map[i][j] == 'P')
+			else if (mlx.map[i][j] == 'P')
 				put_image(&mlx, i, j, mlx.player);
-			else if (map[i][j] == 'C')
+			else if (mlx.map[i][j] == 'C')
 				put_image(&mlx, i, j, mlx.collectibles);
-			else if (map[i][j] == 'E')
+			else if (mlx.map[i][j] == 'E')
 				put_image(&mlx, i, j, mlx.exit);
-			else if (map[i][j] == 'X')
+			else if (mlx.map[i][j] == 'X')
 				put_image(&mlx, i, j, mlx.enemy);
 			j++;
 		}

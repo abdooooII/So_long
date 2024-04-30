@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 12:21:12 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:00:52 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	main(int ac, char **av)
 {
 	t_list	vars;
 	t_libx	mlx;
-	char **map;
 	// t_libx	*libx;
 	mlx.moves = 0;
 	// libx = NULL;
@@ -80,10 +79,10 @@ int	main(int ac, char **av)
 	vars.c = 0;
 	vars.e = 0;
 	vars.p = 0;
-	map = parsing(av, &vars, &mlx);
+	parsing(av, &vars, &mlx);
 	mlx.x = 0;
 	mlx.y = 0;
-	start_map(map, mlx);
+	start_map(mlx);
 		
     mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);
 	//mlx_hook(mlx.win, 2, 0, key_pressed, &mlx);

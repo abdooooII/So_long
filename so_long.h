@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 12:14:39 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:01:49 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		count_lines(int fd);
 char	*ft_strdup(char *s1);
 char	*ft_error(char *str);
 void	check_file(char *str);
-char	**parsing(char **av, t_list *vars, t_libx *mlx);
+void	parsing(char **av, t_list *vars, t_libx *mlx);
 char	**read_map(int fd, char *av);
 int		check_spaces(t_list *vars);
 int		check_map_characters(t_list *vars);
@@ -104,7 +104,7 @@ void    new_window(t_libx *mlx);
 void    load_image(t_libx *mlx, char *filename, void **item);
 void 	put_image(t_libx *mlx, int x, int y, void *image);
 void	start_window(t_libx	*mlx);
-void	start_map(char **map, t_libx mlx);
+void	start_map(t_libx mlx);
 void	map_dimension(t_libx *mlx);
 void	map_dimension(t_libx *mlx);
 

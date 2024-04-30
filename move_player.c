@@ -155,7 +155,7 @@ int start_the_game(int keycode, t_libx *mlx)
     if (keycode == A || keycode == D || keycode == S || keycode == W)
     {
         move_player(mlx, keycode);
-        start_map(mlx->map, *mlx);
+        start_map(*mlx);
 		mlx_string_put(mlx->mlx, mlx->win, 32, 32, 0xFFFFFF, ft_itoa(mlx->moves));
 		mlx_string_put(mlx->mlx, mlx->win, 32, 15, 0xFFFFFF, "moves :");
         mlx->y = 0;
