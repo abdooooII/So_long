@@ -6,11 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:10:58 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 07:10:49 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:51:54 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	**map_copie(t_list *vars)
 {

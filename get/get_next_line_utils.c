@@ -6,11 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:24:48 by abouafso          #+#    #+#             */
-/*   Updated: 2024/03/11 22:30:13 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:51:45 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	ft_strlen(char *str)
 {

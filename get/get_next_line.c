@@ -6,11 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:19:08 by abouafso          #+#    #+#             */
-/*   Updated: 2024/02/26 16:25:43 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:51:49 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	*ft_join_and_free(char *buffer, char *buf)
 {

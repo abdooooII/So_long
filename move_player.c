@@ -113,9 +113,9 @@ void    move_to_down(t_libx *mlx)
 void	change_player_direction(int keycode, t_libx *mlx)
 {
 	if(keycode == D)
-		load_image(mlx, "player.xpm", &(mlx->player));
+		load_image(mlx, "assets/player.xpm", &(mlx->player));
 	else if(keycode == A)
-		load_image(mlx, "playerD.xpm", &(mlx->player));
+		load_image(mlx, "assets/playerD.xpm", &(mlx->player));
 
 }
 
@@ -124,7 +124,7 @@ void	enemy_animation(int keycode, t_libx *mlx)
 	(void) keycode;
 	static int current_frame = 0;
 	int num_frames = 3; // Change this to the number of frames in your animation
-	char *image_files[] = {"enemy1.xpm", "enemy2.xpm", "enemy3.xpm"};
+	char *image_files[] = {"assets/enemy1.xpm", "assets/enemy2.xpm", "assets/enemy3.xpm"};
 
 	load_image(mlx, image_files[current_frame], &(mlx->enemy));
 	current_frame = (current_frame + 1) % num_frames;

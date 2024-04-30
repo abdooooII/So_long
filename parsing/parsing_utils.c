@@ -6,12 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 07:07:23 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:52:03 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <string.h>
+#include "../so_long.h"
 
 char	*ft_strdup(char *s1)
 {

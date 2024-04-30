@@ -6,11 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 05:19:10 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:52:13 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	**read_map(int fd, char *av)
 {

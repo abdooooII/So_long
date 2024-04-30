@@ -6,16 +6,16 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = get_next_line.c \
-		get_next_line_utils.c \
-		parsing_utils.c \
-		parsing.c \
-		reading.c \
+SRC = get/get_next_line.c \
+		get/get_next_line_utils.c \
+		parsing/parsing_utils.c \
+		parsing/parsing.c \
+		parsing/reading.c \
 		so_long.c \
-		check_path.c \
+		parsing/check_path.c \
 		mlx_commands.c \
 		move_player.c \
-		utils.c
+		parsing/utils.c
 
 
 OBJ = $(SRC:.c=.o)
