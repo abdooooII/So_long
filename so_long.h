@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 21:02:38 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:05:56 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_list
 	int		e;
 	int		p;
 	int		c;
+	int		x;
 }	t_list;
 
 typedef struct s_libx
@@ -57,9 +58,11 @@ typedef struct s_libx
 	void	*collectibles;
 	void	*exit;
 	void	*wall;
+	void	*enemy;
 
 }			t_libx;
 
+char	*ft_itoa(int n);
 int		ft_strlen(char *str);
 char	*ft_strrchr(char *str, int c);
 void	*ft_calloc(size_t num_elements, size_t element_size);
@@ -112,8 +115,11 @@ void    move_to_right(t_libx *mlx);
 void    move_to_left(t_libx *mlx);
 void    move_to_up(t_libx *mlx);
 void    move_to_down(t_libx *mlx);
-int start_the_game(t_libx *mlx, int keycode);
+int		start_the_game(int keycode, t_libx *mlx);
 void	player_positionn(char **map, int *i, int *j);
+int key_pressed(int keycode, void *param);
+void close_window(void *mlx_ptr, void *win_ptr);
+void	enemy_animation(int keycode, t_libx *mlx);
 
 
 

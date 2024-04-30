@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:28 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 11:39:18 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 07:05:41 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void    initialize_mlx(t_libx   *mlx)
 void    new_window(t_libx *mlx)
 {
     mlx->win = mlx_new_window(mlx->mlx , (ft_strlen(mlx->map[0]) - 1) * 64, countliness(mlx->map) * 64 , "So long");
-	printf("[%d]\n[%d]\n", ft_strlen(mlx->map[0]), countliness(mlx->map));
     if(!mlx->win)
         ft_error("Error while creating the window ! ");
 }
@@ -50,6 +49,7 @@ void	start_window(t_libx	*mlx)
 	load_image(mlx, "player.xpm", &(mlx->player));
 	load_image(mlx, "collectibles.xpm", &(mlx->collectibles));
 	load_image(mlx, "exit.xpm", &(mlx->exit));
+	load_image(mlx, "enemy2.xpm", &(mlx->enemy));
 }
 
 void	start_map(char **map, t_libx mlx)
@@ -62,7 +62,6 @@ void	start_map(char **map, t_libx mlx)
 		j = 0;
 		while(map[i][j])
 		{
-			printf("%c", map[i][j]);
 			if (map[i][j] == '1')
 				put_image(&mlx, i, j, mlx.wall);
 			else if (map[i][j] == '0')
@@ -73,6 +72,8 @@ void	start_map(char **map, t_libx mlx)
 				put_image(&mlx, i, j, mlx.collectibles);
 			else if (map[i][j] == 'E')
 				put_image(&mlx, i, j, mlx.exit);
+			else if (map[i][j] == 'X')
+				put_image(&mlx, i, j, mlx.enemy);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/28 20:47:50 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 07:07:23 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int	check_map_characters(t_list *vars)
 				vars->e++;
 			else if (vars->my_map[i][j] == 'P')
 				vars->p++;
+			else if (vars->my_map[i][j] == 'X')
+				vars->x++;
 			j++;
 		}
 	}
@@ -116,7 +118,7 @@ int	check_invalid_characters(t_list *vars)
 		j = 0;
 		while (vars->my_map[i][j])
 		{
-			if (vars->my_map[i][j] != '1' && vars->my_map[i][j] != '0'
+			if (vars->my_map[i][j] != 'X' && vars->my_map[i][j] != '1' && vars->my_map[i][j] != '0'
 				&& vars->my_map[i][j] != 'C' && vars->my_map[i][j] != 'P'
 				&& vars->my_map[i][j] != 'E' && vars->my_map[i][j] != '\n')
 				ft_error("ERROR: invalid characters\n");
