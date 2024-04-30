@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 09:05:56 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:14:39 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ void 	validpath_checker(t_list *vars);
 int		countliness(char **map);
 
 
-
+void    ft_putnbr_fd_positive(int n);
+void	ft_putstr(char *str);
 
 
 //mlx-------
@@ -117,8 +118,8 @@ void    move_to_up(t_libx *mlx);
 void    move_to_down(t_libx *mlx);
 int		start_the_game(int keycode, t_libx *mlx);
 void	player_positionn(char **map, int *i, int *j);
-int key_pressed(int keycode, void *param);
-void close_window(void *mlx_ptr, void *win_ptr);
+int 	key_pressed(int keycode, void *param);
+void 	close_window(void *mlx_ptr, void *win_ptr);
 void	enemy_animation(int keycode, t_libx *mlx);
 
 

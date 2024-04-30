@@ -9,15 +9,22 @@ void    move_to_right(t_libx *mlx)
         mlx->map[mlx->y][mlx->x + 1] = 'P';
         mlx->map[mlx->y][mlx->x] = '0';
 		mlx->moves++;
+		ft_putnbr_fd_positive(mlx->moves);
+		ft_putstr("\n");
     }
     else if (mlx->map[mlx->y][mlx->x + 1] == 'E')
     {
         if (C_count(mlx->map) == 0)
 		{
-            printf("you won!!!!");
+            ft_putstr("you won!!!!");
 			exit(EXIT_SUCCESS);
 
 		}
+	else if (mlx->map[mlx->y][mlx->x + 1] == 'X')
+    {
+            ft_putstr("you lose !!!");
+			exit(EXIT_SUCCESS);
+    }
     }
 }
 
@@ -29,15 +36,22 @@ void    move_to_left(t_libx *mlx)
         mlx->map[mlx->y][mlx->x - 1] = 'P';
         mlx->map[mlx->y][mlx->x] = '0';
 		mlx->moves++;
+		ft_putnbr_fd_positive(mlx->moves);
+		ft_putstr("\n");
     }
     else if (mlx->map[mlx->y][mlx->x - 1] == 'E')
     {
           if (C_count(mlx->map) == 0)
 		{
-            printf("you won!!!!");
+           ft_putstr("you won!!!!");
 			exit(EXIT_SUCCESS);
 
 		}
+    }
+	else if (mlx->map[mlx->y][mlx->x - 1] == 'X')
+    {
+            ft_putstr("you lose !!!");
+			exit(EXIT_SUCCESS);
     }
 }
 
@@ -50,15 +64,22 @@ void    move_to_up(t_libx *mlx)
         mlx->map[mlx->y - 1][mlx->x] = 'P';
         mlx->map[mlx->y][mlx->x] = '0';
 		mlx->moves++;
+		ft_putnbr_fd_positive(mlx->moves);
+		ft_putstr("\n");
     }
     else if (mlx->map[mlx->y - 1][mlx->x] == 'E')
     {
         if (C_count(mlx->map) == 0)
 		{
-            printf("you won!!!!");
+            ft_putstr("you won!!!!");
 			exit(EXIT_SUCCESS);
 
 		}
+    }
+	else if (mlx->map[mlx->y - 1][mlx->x] == 'X')
+    {
+            ft_putstr("you lose !!!");
+			exit(EXIT_SUCCESS);
     }
 }
 
@@ -71,14 +92,21 @@ void    move_to_down(t_libx *mlx)
         mlx->map[mlx->y + 1][mlx->x] = 'P';
         mlx->map[mlx->y][mlx->x] = '0';
 		mlx->moves++;
+		ft_putnbr_fd_positive(mlx->moves);
+		ft_putstr("\n");
     }
     else if (mlx->map[mlx->y + 1][mlx->x] == 'E')
     {
           if (C_count(mlx->map) == 0)
 		{
-            printf("you won!!!!");
+            ft_putstr("you won!!!!");
 			exit(EXIT_SUCCESS);
 		}
+    }
+	else if (mlx->map[mlx->y + 1][mlx->x] == 'X')
+    {
+            ft_putstr("you lose !!!");
+			exit(EXIT_SUCCESS);
     }
 }
 
@@ -94,13 +122,12 @@ void	change_player_direction(int keycode, t_libx *mlx)
 void	enemy_animation(int keycode, t_libx *mlx)
 {
 	(void) keycode;
-	if(mlx->moves != mlx->moves - 1)
-		load_image(mlx, "enemy1.xpm", &(mlx->enemy));
-	else if(mlx->moves != mlx->moves - 2)
-		load_image(mlx, "enemy2.xpm", &(mlx->enemy));
-	else if(mlx->moves != mlx->moves - 1)
-		load_image(mlx, "enemy3.xpm", &(mlx->enemy));
+	static int current_frame = 0;
+	int num_frames = 3; // Change this to the number of frames in your animation
+	char *image_files[] = {"enemy1.xpm", "enemy2.xpm", "enemy3.xpm"};
 
+	load_image(mlx, image_files[current_frame], &(mlx->enemy));
+	current_frame = (current_frame + 1) % num_frames;
 }
 
 void    move_player(t_libx *mlx, int keycode)
@@ -129,8 +156,8 @@ int start_the_game(int keycode, t_libx *mlx)
     {
         move_player(mlx, keycode);
         start_map(mlx->map, *mlx);
-		printf("%d\n", mlx->moves);
 		mlx_string_put(mlx->mlx, mlx->win, 32, 32, 0xFFFFFF, ft_itoa(mlx->moves));
+		mlx_string_put(mlx->mlx, mlx->win, 32, 15, 0xFFFFFF, "moves :");
         mlx->y = 0;
         mlx->x = 0;
     }

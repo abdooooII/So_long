@@ -14,7 +14,8 @@ SRC = get_next_line.c \
 		so_long.c \
 		check_path.c \
 		mlx_commands.c \
-		move_player.c
+		move_player.c \
+		utils.c
 
 
 OBJ = $(SRC:.c=.o)

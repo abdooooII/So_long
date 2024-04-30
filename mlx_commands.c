@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:28 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 07:05:41 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:20:30 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ int destroy_helper(void *param)
 {
 	(void)param;
 	// t_libx *mlx = (t_libx *)param;
-	printf("close window");
+	ft_putstr("close window");
 	exit(EXIT_SUCCESS);
 }

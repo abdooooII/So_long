@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/04/30 07:12:46 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:21:12 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,8 @@ void close_window(void *mlx_ptr, void *win_ptr)
 {
 	(void) mlx_ptr;
 	(void) win_ptr;
-    printf("Fenêtre fermée\n");
+    ft_putstr("Fenêtre fermée\n");
     exit(0);
-}
-int key_pressed(int keycode, void *param)
-{
-	
-    printf("Key pressed: %d\n", keycode);
-    if (keycode == 53) //esc key code number
-        close_window(param, NULL);
-	// if (key == )
-    return (0);
 }
 #include <string.h>
 static int	count_len(int n)
