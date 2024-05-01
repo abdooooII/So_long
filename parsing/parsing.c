@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:08 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:24:22 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 01:04:41 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,13 @@ void	parsing(char **av,t_libx *mlx)
 	check_sides(mlx);
 	check_map_width(mlx);
 	validpath_checker(mlx);
-	map_dimension(mlx);
 }
+
+	// int xnxx,j;
+	// xnxx = 0; j = 0;
+	// while (all_lines[xnxx])
+	// {
+	// 	printf("%s", all_lines[xnxx]);
+	// 	xnxx++;
+	// }
+	// printf("%s",all_lines[xnxx]);

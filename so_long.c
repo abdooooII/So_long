@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:35:21 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/01 01:07:28 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,16 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
+void f()
+{
+	system("leaks so_long");
+}
 int	main(int ac, char **av)
 {
 	t_libx	mlx;
 
+	atexit(f);
 	mlx.moves = 0;
 	mlx.cc = 0;
 	mlx.ee = 0;
@@ -80,6 +86,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		ft_error("Error: Invalid number of arguments\n");
 	parsing(av, &mlx);
+	map_dimension(&mlx);
 	start_map(mlx);
 		
     mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);

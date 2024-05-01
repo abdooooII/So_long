@@ -2,7 +2,7 @@ NAME = so_long
 
 CC = CC
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 
 RM = rm -f
 
