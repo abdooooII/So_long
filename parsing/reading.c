@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:01:14 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:57:49 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:43:39 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**read_map(int fd, char *av)
 	i = 0;
 	while (1)
 	{
-		all_lines[i] = get_next_line(fd);;
+		all_lines[i] = get_next_line(fd);
 		if (!all_lines[i])
 			break ;
 		i++;
@@ -34,7 +34,7 @@ char	**read_map(int fd, char *av)
 	return (all_lines);
 }
 
-int	  count_lines(int fd)
+int	count_lines(int fd)
 {
 	int		count;
 	char	*line;
@@ -49,4 +49,17 @@ int	  count_lines(int fd)
 		count++;
 	}
 	return (count);
+}
+
+char	*ft_error(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	exit(EXIT_FAILURE);
 }

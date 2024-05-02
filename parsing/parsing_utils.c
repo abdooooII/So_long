@@ -6,58 +6,11 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:04 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 00:23:29 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:45:10 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-char	*ft_strdup(char *s1)
-{
-	char	*dest;
-	size_t	i;
-
-	i = 0;
-	dest = (char *) malloc(ft_strlen(s1) + 1);
-	if (!dest)
-		return (NULL);
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-void	ft_putchar(char c)
-{
-	write(2, &c, 1);
-}
-
-char	*ft_error(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	exit(EXIT_FAILURE);
-}
-
-void	check_file(char *str)
-{
-	int	i;
-
-	i = strlen(str) - 4;
-	if (str[i] == '.' && str[++i] == 'b' && str[++i] == 'e' && str[++i] == 'r')
-		return ;
-	else
-		ft_error("ERROR: extension\n");
-}
 
 int	check_spaces(t_libx *mlx)
 {
@@ -79,33 +32,6 @@ int	check_spaces(t_libx *mlx)
 	return (0);
 }
 
-int	check_map_characters(t_libx *mlx)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (mlx->map[++i])
-	{
-		j = 0;
-		while (mlx->map[i][j])
-		{
-			if (mlx->map[i][j] == 'C')
-				mlx->cc++;
-			else if (mlx->map[i][j] == 'E')
-				mlx->ee++;
-			else if (mlx->map[i][j] == 'P')
-				mlx->pp++;
-			else if (mlx->map[i][j] == 'X')
-				mlx->xx++;
-			j++;
-		}
-	}
-	if (mlx->pp != 1 || mlx->ee != 1 || mlx->cc == 0)
-		ft_error("ERROR: problem in map characters");
-	return (0);
-}
-
 int	check_invalid_characters(t_libx *mlx)
 {
 	int	i;
@@ -117,9 +43,10 @@ int	check_invalid_characters(t_libx *mlx)
 		j = 0;
 		while (mlx->map[i][j])
 		{
-			if (mlx->map[i][j] != 'X' && mlx->map[i][j] != '1' && mlx->map[i][j] != '0'
-				&& mlx->map[i][j] != 'C' && mlx->map[i][j] != 'P'
-				&& mlx->map[i][j] != 'E' && mlx->map[i][j] != '\n')
+			if (mlx->map[i][j] != 'X' && mlx->map[i][j] != '1'
+					&& mlx->map[i][j] != '0'
+					&& mlx->map[i][j] != 'C' && mlx->map[i][j] != 'P'
+					&& mlx->map[i][j] != 'E' && mlx->map[i][j] != '\n')
 				ft_error("ERROR: invalid characters\n");
 			j++;
 		}
@@ -149,25 +76,6 @@ int	check_walls(t_libx *mlx)
 		j++;
 	}
 	return (0);
-}
-
-int	countlines(t_libx *mlx)
-{
-	int	count;
-
-	count = 0;
-	while (mlx->map[count])
-		count++;
-	return (count);
-}
-int	countliness(char **map)
-{
-	int	count;
-
-	count = 0;
-	while (map[count])
-		count++;
-	return (count);
 }
 
 int	check_sides(t_libx *mlx)
@@ -202,27 +110,4 @@ int	check_map_width(t_libx *mlx)
 	if (ft_strlen(mlx->map[i]) != len - 1)
 		ft_error("ERROR: check map width");
 	return (0);
-}
-
-int	C_count(char **map)
-{
-	int i;
-	int j;
-	int C;
-
-	C = 0;
-	i = 0;
-	// j = 0;
-	while(map[i])
-	{
-		j = 0;
-		while(map[i][j])
-		{
-			if(map[i][j] == 'C')
-				C++;
-			j++;
-		}
-		i++;
-	}
-	return(C);
 }

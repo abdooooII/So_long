@@ -6,20 +6,20 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 01:07:28 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:53:59 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void close_window(void *mlx_ptr, void *win_ptr)
+void	close_window(void *mlx_ptr, void *win_ptr)
 {
 	(void) mlx_ptr;
 	(void) win_ptr;
-    ft_putstr("Fenêtre fermée\n");
-    exit(0);
+	ft_putstr("Fenêtre fermée\n");
+	exit(0);
 }
-#include <string.h>
+
 static int	count_len(int n)
 {
 	int	i;
@@ -68,15 +68,10 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-void f()
-{
-	system("leaks so_long");
-}
 int	main(int ac, char **av)
 {
 	t_libx	mlx;
 
-	atexit(f);
 	mlx.moves = 0;
 	mlx.cc = 0;
 	mlx.ee = 0;
@@ -88,10 +83,7 @@ int	main(int ac, char **av)
 	parsing(av, &mlx);
 	map_dimension(&mlx);
 	start_map(mlx);
-		
-    mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);
-	//mlx_hook(mlx.win, 2, 0, key_pressed, &mlx);
-    mlx_hook(mlx.win, 17, 0, destroy_helper, &mlx);
-
+	mlx_hook(mlx.win, 2, 0, start_the_game, &mlx);
+	mlx_hook(mlx.win, 17, 0, destroy_helper, &mlx);
 	mlx_loop(mlx.mlx);
 }

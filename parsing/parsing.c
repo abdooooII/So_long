@@ -6,23 +6,63 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:08 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/01 01:04:41 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:44:53 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void ft_free(char **str)
+void	ft_free(char **str)
 {
-	int i = -1;
+	int	i;
+
+	i = -1;
 	while (str[++i])
 		free(str[i]);
 	free(str);
 }
 
-void	parsing(char **av,t_libx *mlx)
+int	check_map_characters(t_libx *mlx)
 {
-	int		fd;
+	int	i;
+	int	j;
+
+	i = -1;
+	while (mlx->map[++i])
+	{
+		j = 0;
+		while (mlx->map[i][j])
+		{
+			if (mlx->map[i][j] == 'C')
+				mlx->cc++;
+			else if (mlx->map[i][j] == 'E')
+				mlx->ee++;
+			else if (mlx->map[i][j] == 'P')
+				mlx->pp++;
+			else if (mlx->map[i][j] == 'X')
+				mlx->xx++;
+			j++;
+		}
+	}
+	if (mlx->pp != 1 || mlx->ee != 1 || mlx->cc == 0)
+		ft_error("ERROR: problem in map characters");
+	return (0);
+}
+
+void	check_file(char *str)
+{
+	int	i;
+
+	i = strlen(str) - 4;
+	if (str[i] == '.' && str[++i] == 'b' && str[++i] == 'e' && str[++i] == 'r')
+		return ;
+	else
+		ft_error("ERROR: extension\n");
+}
+
+void	parsing(char **av, t_libx *mlx)
+{
+	int	fd;
 
 	check_file(av[1]);
 	fd = open(av[1], O_RDONLY);
@@ -39,12 +79,3 @@ void	parsing(char **av,t_libx *mlx)
 	check_map_width(mlx);
 	validpath_checker(mlx);
 }
-
-	// int xnxx,j;
-	// xnxx = 0; j = 0;
-	// while (all_lines[xnxx])
-	// {
-	// 	printf("%s", all_lines[xnxx]);
-	// 	xnxx++;
-	// }
-	// printf("%s",all_lines[xnxx]);
