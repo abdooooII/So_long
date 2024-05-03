@@ -6,7 +6,7 @@
 #    By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 20:58:51 by abouafso          #+#    #+#              #
-#    Updated: 2024/05/02 05:26:29 by abouafso         ###   ########.fr        #
+#    Updated: 2024/05/02 05:38:47 by abouafso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,7 @@ SRC = get/get_next_line.c \
 	 directions.c \
 	 parsing/count_utils.c
 
-# bsrcs = 
-
-
 OBJ = $(SRC:.c=.o)
-BOBJS = $(bsrcs:.c=.o)
 
 all: $(NAME)
 

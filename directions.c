@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 00:06:24 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 00:09:10 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:19:51 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	move_to_right(t_libx *mlx)
 			ft_putstr("you won!!!!");
 			exit(EXIT_SUCCESS);
 		}
-		else if (mlx->map[mlx->y][mlx->x + 1] == 'X')
-		{
-			ft_putstr("you lose !!!");
-			exit(EXIT_SUCCESS);
-		}
+	}
+	else if (mlx->map[mlx->y][mlx->x + 1] == 'X')
+	{
+		ft_putstr("you lose !!!");
+		exit(EXIT_SUCCESS);
 	}
 }
 
