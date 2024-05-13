@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:10:58 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 00:16:28 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:52:33 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,6 @@ char	**map_copie(t_libx *mlx)
 	return (map_copie);
 }
 
-void	player_positionn(char **map, int *i, int *j)
-{
-	while (map[*i])
-	{
-		*j = 0;
-		while (map[*i][*j])
-		{
-			if (map[*i][*j] == 'P')
-				return ;
-			(*j)++;
-		}
-		(*i)++;
-	}
-}
-
 void	ft_flood_fill(t_libx *mlx, int i, int j)
 {
 	if (i < 0 || i >= countlines(mlx) || j < 0
@@ -64,6 +49,29 @@ void	ft_flood_fill(t_libx *mlx, int i, int j)
 	ft_flood_fill(mlx, i, j + 1);
 }
 
+static void	player_condition(t_libx	*mlx, int i, int j)
+{
+	if (mlx->updated_map[i][j] == 'P'
+			&& mlx->updated_map[i + 1][j] == '1'
+			&& mlx->updated_map[i - 1][j] == '1'
+			&& mlx->updated_map[i][j + 1] == '1'
+			&& mlx->updated_map[i][j - 1] == '1')
+	{
+		ft_error("ERROR : the path is not valid!");
+		ft_free(mlx->updated_map);
+	}
+	if (mlx->updated_map[i][j] == 'C'
+			|| (mlx->updated_map[i][j] == 'E'
+			&& mlx->updated_map[i + 1][j] != 'S'
+			&& mlx->updated_map[i - 1][j] != 'S'
+			&& mlx->updated_map[i][j + 1] != 'S'
+			&& mlx->updated_map[i][j - 1] != 'S'))
+	{
+		ft_error("ERROR : the path is not valid!");
+		ft_free(mlx->updated_map);
+	}
+}
+
 void	check_path(t_libx *mlx)
 {
 	int	i;
@@ -77,16 +85,7 @@ void	check_path(t_libx *mlx)
 		j = 0;
 		while (j < ft_strlen(mlx->updated_map[i]))
 		{
-			if (mlx->updated_map[i][j] == 'C'
-					|| (mlx->updated_map[i][j] == 'E'
-						&& mlx->updated_map[i + 1][j] != 'S'
-						&& mlx->updated_map[i - 1][j] != 'S'
-						&& mlx->updated_map[i][j + 1] != 'S'
-						&& mlx->updated_map[i][j - 1] != 'S'))
-			{
-				ft_error("ERROR : the path is not valid!");
-				ft_free(mlx->updated_map);
-			}
+			player_condition(mlx, i, j);
 			j++;
 		}
 	}

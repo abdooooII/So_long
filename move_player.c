@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 05:04:43 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 05:29:05 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:47:04 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	change_player_direction(int keycode, t_libx *mlx)
 {
 	if (keycode == D)
-		load_image(mlx, "./assets/player.xpm", &(mlx->player));
+		load_image(mlx, "./textures/player.xpm", &(mlx->player));
 	else if (keycode == A)
-		load_image(mlx, "./assets/playerD.xpm", &(mlx->player));
+		load_image(mlx, "./textures/playerD.xpm", &(mlx->player));
 }
 
 void	enemy_animation(int keycode, t_libx *mlx)
@@ -26,9 +26,9 @@ void	enemy_animation(int keycode, t_libx *mlx)
 	int			num_frames;
 	char		*image_files[3];
 
-	image_files[0] = "./assets/enemy1.xpm";
-	image_files[1] = "./assets/enemy2.xpm";
-	image_files[2] = "./assets/enemy3.xpm";
+	image_files[0] = "./textures/enemy1.xpm";
+	image_files[1] = "./textures/enemy2.xpm";
+	image_files[2] = "./textures/enemy3.xpm";
 	num_frames = 3;
 	(void) keycode;
 	load_image(mlx, image_files[current_frame], &(mlx->enemy));
