@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:28 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/13 17:47:04 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/10 01:37:23 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ void	map_dimension(t_libx *mlx)
 	mlx->height = ft_strlen(mlx->map[0]) * 64;
 	start_window(mlx);
 }
-//hooks
 
 int	destroy_helper(void *param)
 {
-	(void)param;
-	ft_putstr("close window");
+	t_libx	*mlx;
+
+	mlx = (t_libx *)param;
+	ft_putstr("window closed\n");
+	mlx_destroy_window(mlx->mlx, mlx->win);
 	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 00:06:24 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 06:19:51 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/09 19:08:55 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	move_to_right(t_libx *mlx)
 	{
 		if (c_count(mlx->map) == 0)
 		{
-			ft_putstr("you won!!!!");
+			ft_putstr(" won!!!!");
 			exit(EXIT_SUCCESS);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 08:38:08 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 03:44:53 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/09 19:39:01 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_file(char *str)
 		ft_error("ERROR: extension\n");
 }
 
-void	parsing(char **av, t_libx *mlx)
+int	parsing(char **av, t_libx *mlx)
 {
 	int	fd;
 
@@ -77,5 +77,7 @@ void	parsing(char **av, t_libx *mlx)
 	check_walls(mlx);
 	check_sides(mlx);
 	check_map_width(mlx);
-	validpath_checker(mlx);
+	if (validpath_checker(mlx) == -1)
+		return (-1);
+	return (0);
 }

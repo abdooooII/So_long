@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 20:52:20 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 02:52:10 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:16:47 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	player_position(t_libx *mlx, int *i, int *j)
 		*j = 0;
 		while (mlx->map[*i][*j])
 		{
-			if (mlx->map[*i][*j])
+			if (mlx->map[*i][*j] == 'P')
 				return ;
 			(*j)++;
 		}

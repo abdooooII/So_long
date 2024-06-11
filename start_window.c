@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 00:01:07 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/02 00:09:31 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/09 19:27:53 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	initialize_mlx(t_libx *mlx)
 {
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
-		ft_error("Error while ");
+		ft_error("Error while mlx init");
 }
 
 void	new_window(t_libx *mlx)

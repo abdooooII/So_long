@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 02:43:45 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/13 18:52:44 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:49:54 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,4 @@ int	c_count(char **map)
 		i++;
 	}
 	return (c);
-}
-
-void	player_positionn(char **map, int *i, int *j)
-{
-	while (map[*i])
-	{
-		*j = 0;
-		while (map[*i][*j])
-		{
-			if (map[*i][*j] == 'P')
-				return ;
-			(*j)++;
-		}
-		(*i)++;
-	}
 }

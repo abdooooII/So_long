@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 05:04:43 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/13 17:47:04 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/10 01:41:54 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,15 @@ void	move_player(t_libx *mlx, int keycode)
 		enemy_animation(keycode, mlx);
 	}
 	else if (keycode == W)
+	{
 		move_to_up(mlx);
+		enemy_animation(keycode, mlx);
+	}
 	else if (keycode == S)
+	{
 		move_to_down(mlx);
+		enemy_animation(keycode, mlx);
+	}
 }
 
 int	start_the_game(int keycode, t_libx *mlx)
@@ -71,6 +77,6 @@ int	start_the_game(int keycode, t_libx *mlx)
 		mlx->x = 0;
 	}
 	if (keycode == 53)
-		exit(EXIT_SUCCESS);
+		destroy_helper(mlx);
 	return (0);
 }
